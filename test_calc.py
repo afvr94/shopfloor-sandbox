@@ -1,6 +1,6 @@
 import unittest
 
-from calc import add, multiply, subtract
+from calc import add, divide, multiply, subtract
 
 
 class CalcTest(unittest.TestCase):
@@ -14,6 +14,13 @@ class CalcTest(unittest.TestCase):
         self.assertEqual(multiply(4, 3), 12)
         self.assertEqual(multiply(7, 0), 0)
         self.assertEqual(multiply(-2, 5), -10)
+
+    def test_divide(self):
+        self.assertEqual(divide(6, 3), 2)
+
+    def test_divide_by_zero(self):
+        with self.assertRaises(ValueError):
+            divide(1, 0)
 
 
 if __name__ == "__main__":
