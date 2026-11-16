@@ -1,6 +1,6 @@
 import unittest
 
-from calc import add, subtract
+from calc import add, multiply, subtract
 
 
 class CalcTest(unittest.TestCase):
@@ -9,6 +9,11 @@ class CalcTest(unittest.TestCase):
 
     def test_subtract(self):
         self.assertEqual(subtract(5, 3), 2)
+
+    def test_multiply(self):
+        self.assertEqual(multiply(4, 3), 12)
+        self.assertEqual(multiply(7, 0), 0)
+        self.assertEqual(multiply(-2, 5), -10)
 
 
 if __name__ == "__main__":
