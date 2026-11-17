@@ -1,6 +1,6 @@
 import unittest
 
-from calc import add, divide, multiply, subtract
+from calc import add, divide, multiply, sqrt, subtract
 
 
 class CalcTest(unittest.TestCase):
@@ -21,6 +21,15 @@ class CalcTest(unittest.TestCase):
     def test_divide_by_zero(self):
         with self.assertRaises(ValueError):
             divide(1, 0)
+
+    def test_sqrt(self):
+        self.assertEqual(sqrt(9), 3)
+        self.assertEqual(sqrt(0), 0)
+        self.assertAlmostEqual(sqrt(2), 1.41421356, places=7)
+
+    def test_sqrt_negative(self):
+        with self.assertRaises(ValueError):
+            sqrt(-1)
 
 
 if __name__ == "__main__":
