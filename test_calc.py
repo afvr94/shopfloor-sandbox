@@ -1,6 +1,6 @@
 import unittest
 
-from calc import add, divide, multiply, percent, sqrt, subtract
+from calc import add, average, divide, multiply, percent, sqrt, subtract
 
 
 class CalcTest(unittest.TestCase):
@@ -40,6 +40,18 @@ class CalcTest(unittest.TestCase):
     def test_percent_of_zero(self):
         with self.assertRaises(ValueError):
             percent(1, 0)
+
+    def test_average(self):
+        self.assertEqual(average([1, 2, 3]), 2)
+        self.assertEqual(average([7]), 7)
+        self.assertEqual(average([-4, -2, 0]), -2)
+        self.assertAlmostEqual(average([0.1, 0.2, 0.3]), 0.2)
+        self.assertEqual(average((2, 4)), 3)
+        self.assertEqual(average(x for x in [1, 2, 3, 4]), 2.5)
+
+    def test_average_empty(self):
+        with self.assertRaises(ValueError):
+            average([])
 
 
 if __name__ == "__main__":
