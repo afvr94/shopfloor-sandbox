@@ -1,6 +1,6 @@
 import unittest
 
-from calc import add, divide, multiply, sqrt, subtract
+from calc import add, divide, multiply, percent, sqrt, subtract
 
 
 class CalcTest(unittest.TestCase):
@@ -30,6 +30,16 @@ class CalcTest(unittest.TestCase):
     def test_sqrt_negative(self):
         with self.assertRaises(ValueError):
             sqrt(-1)
+
+    def test_percent(self):
+        self.assertEqual(percent(50, 200), 25)
+        self.assertEqual(percent(0, 10), 0)
+        self.assertAlmostEqual(percent(1, 3), 33.3333333, places=6)
+        self.assertEqual(percent(-5, 20), -25)
+
+    def test_percent_of_zero(self):
+        with self.assertRaises(ValueError):
+            percent(1, 0)
 
 
 if __name__ == "__main__":

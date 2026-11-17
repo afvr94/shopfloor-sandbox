@@ -23,3 +23,9 @@ def sqrt(x):
     if x < 0:
         raise ValueError("cannot take the square root of a negative number")
     return math.sqrt(x)
+
+
+def percent(part, whole):
+    if whole == 0:
+        raise ValueError("cannot take a percent of zero")
+    return part / whole * 100
